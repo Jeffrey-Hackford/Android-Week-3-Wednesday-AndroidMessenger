@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "360785780105",
+    "firebase_url": "https://androidmessenger-550cb.firebaseio.com",
+    "project_id": "androidmessenger-550cb",
+    "storage_bucket": "androidmessenger-550cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:360785780105:android:612ced8f95643399",
+        "android_client_info": {
+          "package_name": "com.epicodus.androidmessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "360785780105-3s1o6hl7mko4ea59vlhk45s16f4prvo0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ3sqdCbwpJo7Tm3AZS6FL16zFL7Mz8BM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

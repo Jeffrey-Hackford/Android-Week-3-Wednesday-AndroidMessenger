@@ -66,10 +66,11 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Auth success!");
+                    Intent intent = new Intent(CreateAccountActivity.this, ContactsActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "auth failed", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
     }

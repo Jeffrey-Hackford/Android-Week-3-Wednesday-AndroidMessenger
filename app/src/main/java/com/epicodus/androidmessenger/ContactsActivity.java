@@ -6,16 +6,52 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ContactsActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class ContactsActivity extends AppCompatActivity{
+    @Bind(R.id.addContactButton) Button mAddContactButton;
+    @Bind(R.id.addContactEditText) EditText mAddContactEditText;
+    @Bind(R.id.contactListView) ListView mContactListView;
+
+    ArrayList<Contact> contacts = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
+        ButterKnife.bind(this);
+
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, contacts);
+        mContactListView.setAdapter(adapter);
+
+        mAddContactButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (v == mAddContactButton) {
+                    Contact contact = new Contact(mAddContactEditText.getText().toString().trim());
+                    contacts.add(contact);
+                    adapter.notifyDataSetChanged();
+                }
+            }
+        });
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

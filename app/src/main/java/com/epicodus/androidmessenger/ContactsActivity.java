@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,7 +62,7 @@ public class ContactsActivity extends AppCompatActivity{
                     Contact contact = snapshot.getValue(Contact.class);
                     contacts.add(contact);
                     contactDisplay.add(contact.getContact());
-                    System.out.println(contact.getContact());
+//                    System.out.println(contact.getContact());
                 }
             }
             @Override
@@ -71,6 +72,16 @@ public class ContactsActivity extends AppCompatActivity{
 
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, contactDisplay);
         mContactListView.setAdapter(adapter);
+
+        mContactListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(ContactsActivity.this, ChatActivity.class);
+                intent.putExtra("contact", contacts.get(i).getUid());
+                System.out.println(intent.getExtras());
+                startActivity(intent);
+            }
+        });
 
         mAddContactButton.setOnClickListener(new View.OnClickListener() {
 
@@ -82,6 +93,7 @@ public class ContactsActivity extends AppCompatActivity{
                     adapter.notifyDataSetChanged();
                 }
             }
+
         });
 
     }

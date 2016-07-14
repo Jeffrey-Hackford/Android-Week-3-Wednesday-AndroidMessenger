@@ -9,12 +9,16 @@ import org.parceler.Parcel;
 @Parcel
 public class Contact {
     String contact;
+    String email;
+    String uid;
     private String pushId;
 
     public Contact() {}
 
-    public Contact(String contact) {
+    public Contact(String contact, String email, String uid) {
         this.contact = contact;
+        this.email = email;
+        this.uid = uid;
     }
 
     public String getContact() {
@@ -23,6 +27,12 @@ public class Contact {
 
     public String getPushId() {
         return pushId;
+    }
+    public String getUid() {
+        return uid;
+    }
+    public String getEmail() {
+        return email;
     }
 
     public void setPushId() {
